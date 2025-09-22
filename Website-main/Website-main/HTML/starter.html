@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGEZEZ Restaurant</title>
+    <!-- custom css -->
+    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="../CSS/starrter.css">
+    <link rel="stylesheet" href="../CSS/booking.css">
+    <link rel="stylesheet" href="../CSS/cart.css">
+    <link rel="stylesheet" href="../CSS/contact.css">
+
+    <link rel="icon" href="../Images/domain-logo.png" style="border-radius: 50%;" type="image/svg+xml">
+    <!--  google fonts  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<style>
+    iframe {
+        width: 50%;
+        height: 500px;
+        overflow: hidden;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+
+<body>
+    <!-- navigation bar  -->
+    <nav class="navbar" id="wrapper">
+        <div class="restaurant-logo">
+            <a href="">
+                <h1 class="brand-name" id="home">MEGEZEZ</h1>
+            </a>
+
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#book">Reservation</a></li>
+            <li><button class="login-btn">Login</button></li>
+            <li>
+                <button class="theme-toggle" id="theme-toggle">
+                    <img src="../Images/moon.png" alt="Dark mode toggle" id="theme-icon">
+                </button>
+            </li>
+        </ul>
+
+        <button class="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2 class="auth-title">Welcome to MEGEZEZ</h2>
+                <button class="close-btn" id="closeBtn">&times;</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <form id="signInForm" class="auth-form active">
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="" required>
+                    <label>Email Address</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="" required>
+                    <label>Password</label>
+                </div>
+                <button type="submit" class="auth-btn">Sign In</button>
+                <p class="toggle-form">Don't have an account? <span id="showSignUp">Sign up here</span></p>
+                <div class="error-message" id="loginError"></div>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="signUpForm" class="auth-form">
+                <div class="form-group">
+                    <input placeholder="" type="text" id="fullName" required>
+                    <label>Full Name</label>
+                </div>
+                <div class="form-group">
+                    <input placeholder="" type="email" id="signupEmail" required>
+                    <label>Email Address</label>
+                </div>
+                <div class="form-group">
+                    <input placeholder="" type="password" id="signupPassword" required>
+                    <label>Password (min 6 characters)</label>
+                </div>
+                <div class="form-group">
+                    <input placeholder="" type="tel" id="phone" required>
+                    <label>Phone Number</label>
+                </div>
+                <!-- In the sign-up form -->
+                <div class="form-group">
+                    <select id="gender" required>
+                        <option value="">Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+
+                </div>
+
+                <button type="submit" class="auth-btn">Sign Up</button>
+                <p class="toggle-form">Already have an account? <span id="showSignIn">Sign In here</span></p>
+                <div class="error-message" id="signupError"></div>
+                <div class="success-message" id="signupSuccess"></div>
+            </form>
+        </div>
+    </div>
+    <div id="globalNotification" class="global-notification"></div>
+
+
+    <!-- home section -->
+    <section class="grid">
+        <div class="content">
+            <div class="content-left" id="home">
+                <div class="info">
+                    <h2 id="typed-text">Hi</h2>
+                    <p>Hey, our delicious food is waiting for you.</p>
+                </div>
+                <div class="hidden-content" style="display: none;">
+                    <p>Discover our wide variety of cuisines from around Ethiopia, prepared by expert chefs using the
+                        freshest ingredients. Whether you're craving pasta, pizza, Or burgers,
+                        we've got you covered. Our delivery service is fast and reliable, ensuring your food arrives hot
+                        and ready to enjoy.</p>
+                </div>
+                <div class="button-container">
+                    <button id="exploreBtn">Read more</button>
+                    <button id="showLessBtn" style="display: none;">Show Less</button>
+                </div>
+            </div>
+            <div class="content-right">
+                <img src="../Images/Flying Burger PNG Image - 2084x2084.png" alt="">
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <div class="section-divider" id="about">
+        <span class="divider-title">About Us</span>
+    </div>
+
+
+    <!-- about section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="../Images/about-image.png" alt="MEGEZEZ Restaurant" class="restaurant-image">
+            </div>
+
+            <div class="about-content">
+                <h2 class="section-subtitle">Discover Our Legacy</h2>
+                <h1 class="section-title">Welcome to MEGEZEZ</h1>
+
+                <div class="about-text">
+                    <p class="highlight-text">Where Ethiopian Tradition Meets Culinary Innovation</p>
+
+                    <div class="about-details">
+                        <p class="short-description">Established in Debre Berhan university, MEGEZEZ has been
+                            celebrating Ethiopia's rich culinary heritage since 2024. Our passion for authentic flavors
+                            and warm hospitality creates unforgettable dining experiences.</p>
+
+                        <p class="long-description">Using generations-old recipes combined with modern techniques, our
+                            master chefs craft dishes that tell stories of Ethiopia's diverse regions. From our
+                            signature injera made with ancient grains to our specialty coffee ceremony, every element is
+                            a tribute to Ethiopian culture.<br><br>
+                            We source ingredients locally, supporting regional farmers and ensuring the freshest
+                            flavors. Our commitment to sustainability extends from our kitchen practices to our
+                            eco-friendly packaging.</p>
+
+                        <ul class="about-features">
+                            <li><i class="fas fa-award"></i>Home of Authentic Ethiopian Spices & Hospitality</li>
+                            <li><i class="fas fa-seedling"></i> Locally-Sourced Ingredients</li>
+                            <li><i class="fas fa-mug-hot"></i> Ethiopia’s Timeless Coffee Ritual</li>
+                            <li><i class="fas fa-users"></i> Family-Friendly Atmosphere</li>
+                        </ul>
+                    </div>
+
+                    <a href="#count"><button class="read-more-btn" id="readMoreBtn">Read More</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- menu section  -->
+    <div class="section-divider" id="menu">
+        <span class="divider-title"> Our Menu </span>
+    </div>
+
+    <div class="cart-icon" id="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+
+    <div class="a">
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" id="search-input" placeholder="Search for  foods and drinks...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+                <div class="suggestions-container" id="suggestions-container"></div>
+            </div>
+            <div class="filter-container" id="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="discounted">Discounted</button>
+                <button class="filter-btn" data-filter="rating">Top Rated</button>
+                <button class="filter-btn" data-filter="price-low">Price: Low to High</button>
+                <button class="filter-btn" data-filter="price-high">Price: High to Low</button>
+            </div>
+            <button class="back-btn" id="back-btn"> </button>
+        </div>
+        
+    </div>   
+                    <h1 class="main-title">Fasting Foods & Beverages</h1>
+                    <div class="category-container" id="category-container">
+                        <!-- categories  added by JavaScript --> 
+                    </div>
+                    <div class="items-container" id="items-container">
+                        <!-- items added by JavaScript -->
+        
+                    </div>
+        
+        
+    
+
+    <!-- cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2 class="cart-title">Your Cart</h2>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- cart items will be added by JavaScript -->
+        </div>
+        <div class="cart-total">
+            <div class="total-text">Total:</div>
+            <div class="total-amount" id="total-amount">0 ETB</div>
+            <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+
+
+    </div>
+
+    <!-- Payment Form -->
+    <div class="payment-form-container" id="payment-form-container">
+        <div class="payment-form">
+            <div class="payment-header">
+                <h2 class="payment-title">Payment Information</h2>
+                <button class="close-payment" id="close-payment">&times;</button>
+            </div>
+
+            <form id="paymentForm" novalidate>
+                <!-- Personal Info -->
+                <div class="form-section">
+                    <h2><i class="fas fa-user"></i> Personal Information</h2>
+                    <div class="input-group">
+                        <input type="text" id="fullName" required placeholder=" ">
+                        <label for="fullName">Full Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" id="phone" required placeholder=" " pattern="[0-9]{10}">
+                        <label for="phone">Phone Number</label>
+                    </div>
+                </div>
+
+                <!-- delivery Method -->
+                <div class="form-section">
+                    <h2><i class="fas fa-truck"></i> Delivery Method</h2>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="deliveryMethod" id="deliveryYes" value="delivery" checked>
+                            <span>Delivery (Adds delivery fee)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="deliveryMethod" id="deliveryNo" value="pickup">
+                            <span>Pickup (No delivery fee)</span>
+                        </label>
+                    </div>
+
+                    <div id="deliveryDetails">
+                        <div class="input-group">
+                            <select name="sex" id="sex" aria-placeholder="Selct your sex " required>
+                                <!-- <option value="" disabled>Slect your sex </option> -->
+                                <option value="male">Male</option>
+                                <option value="Female">Female </option>
+                            </select>
+                            <label for="sex">Sex</label>
+                          
+                        </div>
+
+                        <div class="input-group">
+        
+                            <select id="building" required>
+
+                                <option value="">Select Building</option>
+                                <optgroup label="Dormitories">
+                                    <option value="DO-01">DO-01</option>
+                                    <!-- all  the  DO options up to DO-41 are added  by javascript  -->
+                                </optgroup>
+                                <optgroup label="Classrooms">
+                                    <option value="CL-01">CL-01</option>
+                                    <!-- all all CL options are added by javascript -->
+                                </optgroup>
+                                <!--  all other building options are added by javascript  -->
+                            </select>
+                            <label for="building">Building</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="specificLocation" placeholder=" ">
+                            <label for="specificLocation">Specific Location (Room, etc.)</label>
+                        </div>
+                        <div class="delivery-fee">
+                            <span>Delivery Fee:</span>
+                            <span id="deliveryFee">0 ETB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="form-section">
+                    <h2><i class="fas fa-credit-card"></i> Payment Method</h2>
+                    <div class="select-group">
+                        <select id="paymentMethod" required>
+                            <option value="">Select Payment</option>
+                            <option value="nib">Nib International Bank</option>
+                            <option value="cbe">CBE</option>
+                            <option value="dashen">Dashen Bank</option>
+                            <option value="abisinia">Abisinia Bank</option>
+                            <option value="telebirr">Telebirr</option>
+                        </select>
+                    </div>
+
+
+
+                    <div id="accountDetails" class="hidden" style="margin-top: 35px;">
+                        <div class="input-group">
+                            <input type="text" id="accountNumber" placeholder=" ">
+                            <label for="accountNumber">Account Number</label>
+                            <div id="accountError" class="error-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="order-summary">
+                    <div class="summary-item">
+                        <span>Subtotal:</span>
+                        <span id="paymentSubtotal">0 ETB</span>
+                    </div>
+                    <div class="summary-item delivery-fee">
+                        <span>Delivery Fee:</span>
+                        <span id="paymentDeliveryFee">0 ETB</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total:</span>
+                        <span id="paymentTotal">0 ETB</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="payment-submit-btn">
+                    <i class="fas fa-lock"></i> Complete Payment
+                </button>
+            </form>
+        </div>
+        <!-- payment Success -->
+        <div id="payment-success" class="payment-success">
+            <i class="fas fa-check-circle"></i>
+            <h3>Payment Successful!</h3>
+            <p>Your order has been placed successfully. You'll receive a confirmation shortly.</p>
+            <button id="payment-success-btn" class="payment-success-btn">Done</button>
+        </div>
+
+    </div>
+
+
+    <!-- overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Add to Cart Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h3 class="modal-title" id="modal-title">Add to Cart</h3>
+            <p class="modal-desc" id="modal-desc">Special instructions (optional)</p>
+            <div class="quantity-control">
+                <label class="modal-label">Quantity:</label>
+                <input type="number" class="modal-quantity" id="modal-quantity" min="1" value="1">
+            </div>
+            <textarea class="modal-desc-input" id="modal-desc-input" placeholder="Any special requests?"></textarea>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel-btn" id="cancel-btn">Cancel</button>
+                <button class="modal-btn confirm-btn" id="confirm-btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rating Modal -->
+    <div class="rating-modal" id="rating-modal">
+        <div class="rating-content">
+            <h3 class="rating-title">Rate this item</h3>
+            <div class="rating-stars" id="rating-stars">
+                <i class="far fa-star rating-star" data-rating="1"></i>
+                <i class="far fa-star rating-star" data-rating="2"></i>
+                <i class="far fa-star rating-star" data-rating="3"></i>
+                <i class="far fa-star rating-star" data-rating="4"></i>
+                <i class="far fa-star rating-star" data-rating="5"></i>
+            </div>
+            <div class="rating-buttons">
+                <button class="rating-btn cancel-btn" id="rating-cancel-btn">Cancel</button>
+                <button class="rating-btn confirm-btn" id="rating-submit-btn">Submit</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- team counter  -->
+
+    <div class="section-divider" id="count">
+        <span class="divider-title">Our team Statics </span>
+    </div>
+    <section class="achievement-counters">
+        <div class="counter-container">
+            <div class="counter-card">
+                <i class="fas fa-utensils"></i>
+                <div class="counter" data-target="50">0</div>
+                <span>Menu Items</span>
+            </div>
+
+            <div class="counter-card">
+                <i class="fas fa-smile-beam"></i>
+                <div class="counter" data-target="1000">0</div>
+                <span>Happy Customers</span>
+            </div>
+
+            <div class="counter-card">
+                <i class="fas fa-calendar-alt"></i>
+                <div class="counter" data-target="5">0</div>
+                <span>Years Experience</span>
+            </div>
+
+            <div class="counter-card">
+                <i class="fas fa-award"></i>
+                <div class="counter" data-target="15">0</div>
+                <span>Offices  </span>
+            </div>
+
+
+            <div class="counter-card">
+                <i class="fas fa-utensils"></i>
+                <div class="counter" data-target="500">0</div>
+                <span>Regular customer </span>
+            </div>
+
+            <div class="counter-card">
+                <i class="fas fa-smile-beam"></i>
+                <div class="counter" data-target="60">0</div>
+                <span>Employees</span>
+            </div>
+
+            <div class="counter-card">
+                <i class="fas fa-calendar-alt"></i>
+                <div class="counter" data-target="3">0</div>
+                <span>Manager </span>
+            </div>
+
+            <div class="counter-card">
+                <i class="fas fa-award"></i>
+                <div class="counter" data-target="1">0</div>
+                <span> staff members   </span>
+            </div>
+
+        </div>
+    </section>
+
+    <!--   Frequently asked questions .. -->
+
+
+
+    <div class="section-divider">
+        <span class="divider-title">FAQ</span>
+    </div>
+
+    <!-- Add this before your footer section -->
+    <section class="faq-section" id="faq">
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Do you offer vegetarian/vegan options?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We have dedicated vegetarian and vegan menu sections, with 15+ plant-based traditional and
+                        modern dishes. All vegan items are prepared separately to avoid cross-contamination.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-clock"></i>
+                    <h3>What are your opening hours?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We're open daily from 8:00 AM to 10:00 PM. Holiday hours may vary - check our social media for
+                        special announcements.</p>
+                </div>
+            </div>
+
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-wallet"></i>
+                    <h3>What payment methods do you accept?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept all major payment options in bank :  mobile payments
+                        ( TeleBirr), and bank transfers. All online transactions are securely processed
+                        through Dashen Bank's, Nib International BanK, CBE,Abisinia Bank,Telebirr
+                        payment gateway.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-car"></i>
+                    <h3>Is parking available at your restaurant?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>for now  we have no parking area, we are in work of it ,when we finsishes we announce .</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Can I book for large groups or events?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accommodate groups up to 20 people. For events larger than 15 guests, please contact our
+                        events team at events@megezez.com at least 72 hours in advance. We offer special menus for
+                      special events</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-truck"></i>
+                    <h3>What areas do you deliver to?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We deliver in  Debre Berhan university  center through our partner delivery
+                        services. Delivery hours: 8:00 AM - 10:00 PM daily. Minimum order: 20 ETB for delivery.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Are your ingredients locally sourced?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>85% of our ingredients come from local farmers and producers within Amhara Region. We work
+                        directly with 12 local cooperatives and use 100% organic spices .</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-allergies"></i>
+                    <h3>How do you handle food allergies?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Notify our staff about any allergies before ordering. We maintain separate preparation areas for
+                        common allergens (nuts, gluten, shellfish). Allergen information available on request - ask for
+                        our allergy matrix menu.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-gift"></i>
+                    <h3>Do you offer gift certificates?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <br><br>
+                    <p>for  now we do not offer gift certeficate .</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>What COVID-19 safety measures are in place?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We follow all MOH guidelines: daily staff temperature checks, UV sanitized tableware, HEPA air
+                        filtration, and contactless payment options. Dining tables are spaced 2 meters apart, with
+                        optional outdoor seating.</p>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+    <!-- booking section  -->
+
+
+    <section class="booking-section" id="book">
+        <div class="section-divider">
+            <span class="divider-title">Reservations</span>
+        </div>
+
+        <div class="booking-container">
+            <div class="booking-image">
+                <img src="../Images/reservationtable.png" alt="Elegant Restaurant Interior" loading="lazy">
+            </div>
+
+            <div class="booking-form glass-card">
+                <h2><i class="fas fa-calendar-star"></i> Reserve Your Table</h2>
+
+                <form id="bookingForm">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <input type="text" id="bookName" required placeholder=" ">
+                            <label for="bookName">Full Name</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="bookEmail" required placeholder=" ">
+                            <label for="bookEmail">Email</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <input type="tel" id="bookPhone" required placeholder=" " pattern="[0-9]{10}">
+                            <label for="bookPhone">Phone Number</label>
+                        </div>
+
+                        <div class="input-group">
+                            <select id="bookGuests" required>
+                                <option value="" disabled selected> </option>
+                                <option value="1">1 person</option>
+                                <option value="2">2 people</option>
+                                <option value="3-4">3-4 people</option>
+                                <option value="5-6">5-6 people</option>
+                                <option value="7+">7+ people</option>
+                            </select>
+                            <label for="bookGuests">Number of Guests</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <input type="date" id="bookDate" required>
+                            <label for="bookDate">Date</label>
+                        </div>
+
+                        <div class="input-group">
+                            <select id="bookTime" required>
+                                <option value="" disabled selected> </option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="18:00">6:00 PM</option>
+                                <option value="19:00">7:00 PM</option>
+                                <option value="20:00">8:00 PM</option>
+                            </select>
+                            <label for="bookTime">Time</label>
+                        </div>
+                    </div>
+
+
+
+                    <div class="input-group">
+                        <textarea id="bookNotes" placeholder=" "></textarea>
+                        <label for="bookNotes">Special Requests</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn pulse-on-hover">
+                        <i class="fas fa-check-double"></i> Confirm Reservation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Popup -->
+    <div class="confirmation-popup hidden">
+        <div class="popup-content">
+            <div class="popup-header">
+                <i class="fas fa-check-circle"></i>
+                <h3>Reservation Confirmed!</h3>
+            </div>
+            <div class="popup-body">
+                <div class="confetti"></div>
+                <p>Thank you for choosing <span class="highlight">MEGEZEZ</span></p>
+                <div class="reservation-details">
+                    <p><i class="fas fa-user"></i> <span id="popupName"></span></p>
+                    <p><i class="fas fa-calendar-day"></i> <span id="popupDate"></span></p>
+                    <p><i class="fas fa-clock"></i> <span id="popupTime"></span></p>
+                    <p><i class="fas fa-users"></i> <span id="popupGuests"></span></p>
+                </div>
+            </div>
+            <button class="popup-close-btn">
+                <i class="fas fa-times"></i> Close
+            </button>
+        </div>
+    </div>
+
+
+    <section class="contact-section" id="contact">
+        <div class="contact-details">
+            <div class="section-divider">
+                <span class="divider-title">Contact Us</span>
+            </div>
+
+            <div class="contact-methods">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+251 944 463 198</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>contact@megezez.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Open Daily</h3>
+                        <p>8:00 AM - 10:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dual-container">
+            <!-- Map Section -->
+            <div class="map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3933.280822926745!2d39.52144457320025!3d9.657029178846043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1649bd0070f25297%3A0xe6df0ae06e47ebf5!2sMegezez%20Lounge!5e0!3m2!1sen!2set!4v1742855014990!5m2!1sen!2set"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2><i class="fas fa-comments"></i> Quick Contact</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="contactName" required placeholder="Full Name">
+                        <label for="contactName">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="contactEmail" required placeholder="Email Address">
+                        <label for="contactEmail">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="contactSubject" required placeholder="Subject">
+                        <label for="contactSubject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="contactMessage" required placeholder="Your message..."></textarea>
+                        <label for="contactMessage">Your Message</label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- footer section  -->
+ 
+    <footer class="menu-footer">
+        <div class="footer-container">
+            <!-- Restaurant Info -->
+            <div class="footer-section">
+                <a href="#home"><img src="../Images/logoimage.png" alt="MEGEZEZ Logo" class="footer-logo"></a>
+                <p class="footer-tagline">Serving Authentic Ethiopian Flavors Since 2025</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section">
+                <h4 class="footer-heading">Contact Us</h4>
+                <ul class="footer-list">
+                    <li><i class="fas fa-map-marker-alt"></i> Debre berhan ethiopia </li>
+                    <li><i class="fas fa-phone"></i> +251 944463198</li>
+                    <li><i class="fas fa-envelope"></i> contact@megezez.com</li>
+                </ul>
+            </div>
+
+            <!-- Opening Hours -->
+            <div class="footer-section">
+                <h4 class="footer-heading">Opening Hours</h4>
+                <ul class="footer-list hours-list">
+                    <li><span>Mon-Fri</span> 8:00 AM - 10:00 PM</li>
+                    <li><span>Saturday</span> 9:00 AM - 11:00 PM</li>
+                    <li><span>Sunday</span> 9:00 AM - 9:00 PM</li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-list">
+                    <li><a href="#home"><i class="fas fa-utensils"></i> Home</a></li>
+                    <li><a href="#menu"><i class="fas fa-utensils"></i> Our Menu</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="#book"><i class="fas fa-calendar-alt"></i> Reservations</a></li>
+                    <li><a href="#contact"><i class="fas fa-comments"></i> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 MEGEZEZ. All rights reserved</p>
+            <p>Designed with Satelite team <i class="fas fa-heart"></i> in Debre berhan</p>
+        </div>
+    </footer>
+
+
+
+
+
+    <script src="../javascript/starter.js"></script>
+    <script src="../javascript/booking.js"></script>
+    <script src="../javascript/cart.js"></script>
+    <script src="../javascript/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</body>
+
+</html>

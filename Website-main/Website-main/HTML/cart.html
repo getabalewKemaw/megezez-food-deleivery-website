@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cart-icon" id="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+
+    <div class="search-container">
+        <div class="search-wrapper">
+            <input type="text" id="search-input" placeholder="Search for fasting foods and drinks...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+            <div class="suggestions-container" id="suggestions-container"></div>
+        </div>
+        <div class="filter-container" id="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="discounted">Discounted</button>
+            <button class="filter-btn" data-filter="rating">Top Rated</button>
+            <button class="filter-btn" data-filter="price-low">Price: Low to High</button>
+            <button class="filter-btn" data-filter="price-high">Price: High to Low</button>
+        </div>
+    </div>
+
+    <h1 class="main-title">Fasting Foods & Beverages</h1>
+
+    <div class="category-container" id="category-container">
+        <!-- Categories will be added by JavaScript -->
+    </div>
+
+    <div class="items-container" id="items-container">
+        <!-- Items will be added by JavaScript -->
+        <button class="back-btn" id="back-btn">Back to Categories</button>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h2 class="cart-title">Your Cart</h2>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be added by JavaScript -->
+        </div>
+        <div class="cart-total">
+            <div class="total-text">Total:</div>
+            <div class="total-amount" id="total-amount">0 ETB</div>
+            <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Add to Cart Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h3 class="modal-title" id="modal-title">Add to Cart</h3>
+            <p class="modal-desc" id="modal-desc">Special instructions (optional)</p>
+            <div class="quantity-control">
+                <label class="modal-label">Quantity:</label>
+                <input type="number" class="modal-quantity" id="modal-quantity" min="1" value="1">
+            </div>
+            <textarea class="modal-desc-input" id="modal-desc-input" placeholder="Any special requests?"></textarea>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel-btn" id="cancel-btn">Cancel</button>
+                <button class="modal-btn confirm-btn" id="confirm-btn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rating Modal -->
+    <div class="rating-modal" id="rating-modal">
+        <div class="rating-content">
+            <h3 class="rating-title">Rate this item</h3>
+            <div class="rating-stars" id="rating-stars">
+                <i class="far fa-star rating-star" data-rating="1"></i>
+                <i class="far fa-star rating-star" data-rating="2"></i>
+                <i class="far fa-star rating-star" data-rating="3"></i>
+                <i class="far fa-star rating-star" data-rating="4"></i>
+                <i class="far fa-star rating-star" data-rating="5"></i>
+            </div>
+            <div class="rating-buttons">
+                <button class="rating-btn cancel-btn" id="rating-cancel-btn">Cancel</button>
+                <button class="rating-btn confirm-btn" id="rating-submit-btn">Submit</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

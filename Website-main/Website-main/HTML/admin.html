@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Megezez</title>
+    <link rel="stylesheet" href="../CSS/admin.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <button class="hamburger-btn">
+                <span class="material-icons-round">menu</span>
+            </button>
+            <div class="mobile-logo">
+                <span class="logo-icon">🍽️</span>
+                <span>Megezez</span>
+            </div>
+            <div class="mobile-user">
+                <span class="material-icons-round">admin_panel_settings</span>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">🍽️</div>
+                <h2>Megezez <span>Admin</span></h2>
+                <button class="close-sidebar">
+                    <span class="material-icons-round">close</span>
+                </button>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="active" data-section="dashboard">
+                    <span class="material-icons-round">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" data-section="menu">
+                    <span class="material-icons-round">restaurant_menu</span>
+                    <span>Menu Management</span>
+                </a>
+                <a href="#" data-section="orders">
+                    <span class="material-icons-round">receipt_long</span>
+                    <span>Orders</span>
+                    <span class="badge">24</span>
+                </a>
+                <a href="#" data-section="customers">
+                    <span class="material-icons-round">people</span>
+                    <span>Customers</span>
+                    <span class="badge">8</span>
+                </a>
+                <a href="#" data-section="reservations">
+                    <span class="material-icons-round">event</span>
+                    <span>Reservations</span>
+                    <span class="badge">12</span>
+                </a>
+                <a href="#" data-section="reports">
+                    <span class="material-icons-round">analytics</span>
+                    <span>Reports</span>
+                </a>
+                <a href="starter.html" id="logout-btn">
+                    <span class="material-icons-round">logout</span>
+                    <span>Logout</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <div class="header-content">
+                    <h1 id="welcome-message">Welcome back, <span id="admin-name">Admin</span>!</h1>
+                    <div class="user-info">
+                        <div class="notification-bell">
+                            <span class="material-icons-round">notifications</span>
+                            <span class="notification-count">5</span>
+                            <div class="notification-dropdown">
+                                <div class="notification-header">
+                                    <h4>Notifications</h4>
+                                    <button class="mark-all-read">Mark all as read</button>
+                                </div>
+                                <div class="notification-list">
+                                    <div class="notification-item unread">
+                                        <span class="notification-icon material-icons-round">shopping_bag</span>
+                                        <div class="notification-content">
+                                            <p>New order #1256 received</p>
+                                            <small>30 minutes ago</small>
+                                        </div>
+                                    </div>
+                                    <div class="notification-item unread">
+                                        <span class="notification-icon material-icons-round">person_add</span>
+                                        <div class="notification-content">
+                                            <p>New customer registered</p>
+                                            <small>2 hours ago</small>
+                                        </div>
+                                    </div>
+                                    <div class="notification-item">
+                                        <span class="notification-icon material-icons-round">menu_book</span>
+                                        <div class="notification-content">
+                                            <p>Menu item updated</p>
+                                            <small>4 hours ago</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Admin" id="user-avatar-img">
+                            <div class="user-dropdown">
+                                <div class="user-dropdown-header">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Admin">
+                                    <div>
+                                        <h4>Admin User</h4>
+                                        <small>Super Admin</small>
+                                    </div>
+                                </div>
+                                <div class="user-dropdown-menu">
+                                    <a href="#"><span class="material-icons-round">person</span> My Profile</a>
+                                    <a href="#"><span class="material-icons-round">settings</span> Settings</a>
+                                    <a href="#" id="dropdown-logout-btn"><span class="material-icons-round">logout</span> Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <div class="content-grid" id="dashboard-content">
+                <div class="card stats-card total-orders animate__animated animate__fadeInUp">
+                    <div class="card-icon">
+                        <span class="material-icons-round">shopping_bag</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Today's Orders</h3>
+                        <p class="stat-number">24</p>
+                        <div class="stat-change positive">
+                            <span class="material-icons-round">trending_up</span>
+                            <span>+5 from yesterday</span>
+                        </div>
+                    </div>
+                    <button class="view-btn" data-action="view-orders">View All</button>
+                </div>
+                
+                <div class="card stats-card total-revenue animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="card-icon">
+                        <span class="material-icons-round">payments</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Today's Revenue</h3>
+                        <p class="stat-number">$1,245</p>
+                        <div class="stat-change positive">
+                            <span class="material-icons-round">trending_up</span>
+                            <span>+12% from yesterday</span>
+                        </div>
+                    </div>
+                    <button class="view-btn" data-action="view-reports">View Report</button>
+                </div>
+                
+                <div class="card stats-card new-customers animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="card-icon">
+                        <span class="material-icons-round">group</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>New Customers</h3>
+                        <p class="stat-number">8</p>
+                        <div class="stat-change positive">
+                            <span class="material-icons-round">trending_up</span>
+                            <span>This Week</span>
+                        </div>
+                    </div>
+                    <button class="view-btn" data-action="view-customers">View All</button>
+                </div>
+                
+                <div class="card stats-card reservations animate__animated animate__fadeInUp animate__delay-3s">
+                    <div class="card-icon">
+                        <span class="material-icons-round">event_available</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Today's Reservations</h3>
+                        <p class="stat-number">12</p>
+                        <div class="stat-change negative">
+                            <span class="material-icons-round">trending_down</span>
+                            <span>-2 from yesterday</span>
+                        </div>
+                    </div>
+                    <button class="view-btn" data-action="view-reservations">View All</button>
+                </div>
+
+                <div class="card activity-card animate__animated animate__fadeIn">
+                    <div class="card-header">
+                        <h3>Recent Activity</h3>
+                        <button class="view-all" data-action="view-activity">View All</button>
+                    </div>
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <span class="activity-icon material-icons-round">shopping_bag</span>
+                            <div class="activity-content">
+                                <p>New order <strong>#1256</strong> received</p>
+                                <small>30 minutes ago</small>
+                            </div>
+                            <span class="activity-status new">New</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-icon material-icons-round">person_add</span>
+                            <div class="activity-content">
+                                <p>New customer <strong>John Doe</strong> registered</p>
+                                <small>2 hours ago</small>
+                            </div>
+                            <span class="activity-status new">New</span>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-icon material-icons-round">menu_book</span>
+                            <div class="activity-content">
+                                <p>Menu item <strong>Margherita Pizza</strong> updated</p>
+                                <small>4 hours ago</small>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <span class="activity-icon material-icons-round">receipt</span>
+                            <div class="activity-content">
+                                <p>Order <strong>#1254</strong> delivered</p>
+                                <small>Yesterday</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card sales-card animate__animated animate__fadeIn">
+                    <div class="card-header">
+                        <h3>Sales Overview</h3>
+                        <div class="chart-period">
+                            <select id="chart-period">
+                                <option value="7">Last 7 Days</option>
+                                <option value="30">Last 30 Days</option>
+                                <option value="month">This Month</option>
+                                <option value="last-month">Last Month</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card popular-items animate__animated animate__fadeIn">
+                    <div class="card-header">
+                        <h3>Popular Items</h3>
+                        <button class="view-all" data-action="view-menu">View All</button>
+                    </div>
+                    <div class="popular-items-grid">
+                        <div class="popular-item">
+                            <div class="item-rank">1</div>
+                            <img src="https://source.unsplash.com/random/300x300/?pizza" alt="Margherita Pizza">
+                            <div class="item-info">
+                                <h4>Margherita Pizza</h4>
+                                <p>32 orders this week</p>
+                                <div class="item-stats">
+                                    <span class="material-icons-round">trending_up</span>
+                                    <span>+12%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popular-item">
+                            <div class="item-rank">2</div>
+                            <img src="https://source.unsplash.com/random/300x300/?pasta" alt="Pasta Alfredo">
+                            <div class="item-info">
+                                <h4>Pasta Alfredo</h4>
+                                <p>28 orders this week</p>
+                                <div class="item-stats">
+                                    <span class="material-icons-round">trending_up</span>
+                                    <span>+8%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popular-item">
+                            <div class="item-rank">3</div>
+                            <img src="https://source.unsplash.com/random/300x300/?salad" alt="Caesar Salad">
+                            <div class="item-info">
+                                <h4>Caesar Salad</h4>
+                                <p>24 orders this week</p>
+                                <div class="item-stats">
+                                    <span class="material-icons-round">trending_down</span>
+                                    <span>-3%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Management Section -->
+            <div class="content-grid hidden" id="menu-content">
+                <div class="card full-width">
+                    <div class="card-header">
+                        <h3>Menu Items</h3>
+                        <div class="card-actions">
+                            <button class="action-btn primary" id="add-menu-item">
+                                <span class="material-icons-round">add</span> Add Item
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-toolbar">
+                        <div class="search-bar">
+                            <span class="material-icons-round">search</span>
+                            <input type="text" id="menu-search" placeholder="Search menu items...">
+                        </div>
+                        <div class="filters">
+                            <select id="menu-category-filter">
+                                <option value="">All Categories</option>
+                                <option value="appetizer">Appetizers</option>
+                                <option value="main">Main Courses</option>
+                                <option value="dessert">Desserts</option>
+                                <option value="beverage">Beverages</option>
+                            </select>
+                            <select id="menu-status-filter">
+                                <option value="">All Statuses</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="image-col">Image</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th class="actions-col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="menu-items-table">
+                                <!-- Menu items will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <div class="table-info" id="menu-table-info">Showing 1 to 5 of 12 entries</div>
+                        <div class="pagination">
+                            <button class="pagination-btn" disabled>
+                                <span class="material-icons-round">chevron_left</span>
+                            </button>
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn">
+                                <span class="material-icons-round">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div class="content-grid hidden" id="orders-content">
+                <div class="card full-width">
+                    <div class="card-header">
+                        <h3>Orders</h3>
+                        <div class="card-toolbar">
+                            <div class="filters">
+                                <select id="order-status-filter">
+                                    <option value="all">All Statuses</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="preparing">Preparing</option>
+                                    <option value="on-the-way">On the Way</option>
+                                    <option value="delivered">Delivered</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                                <div class="date-filter">
+                                    <span class="material-icons-round">calendar_today</span>
+                                    <input type="date" id="order-date-filter">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th class="actions-col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-table-body">
+                                <!-- Orders will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <div class="table-info" id="orders-table-info">Showing 1 to 5 of 24 entries</div>
+                        <div class="pagination">
+                            <button class="pagination-btn" disabled>
+                                <span class="material-icons-round">chevron_left</span>
+                            </button>
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn">4</button>
+                            <button class="pagination-btn">5</button>
+                            <button class="pagination-btn">
+                                <span class="material-icons-round">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customers Section -->
+            <div class="content-grid hidden" id="customers-content">
+                <div class="card full-width">
+                    <div class="card-header">
+                        <h3>Customers</h3>
+                        <div class="card-toolbar">
+                            <div class="search-bar">
+                                <span class="material-icons-round">search</span>
+                                <input type="text" id="customer-search" placeholder="Search customers...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th class="image-col">Photo</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Orders</th>
+                                    <th>Last Order</th>
+                                    <th class="actions-col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customers-table-body">
+                                <!-- Customers will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <div class="table-info" id="customers-table-info">Showing 1 to 5 of 8 entries</div>
+                        <div class="pagination">
+                            <button class="pagination-btn" disabled>
+                                <span class="material-icons-round">chevron_left</span>
+                            </button>
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">
+                                <span class="material-icons-round">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reservations Section -->
+            <div class="content-grid hidden" id="reservations-content">
+                <div class="card full-width">
+                    <div class="card-header">
+                        <h3>Reservations</h3>
+                        <div class="card-toolbar">
+                            <div class="filters">
+                                <select id="reservation-status-filter">
+                                    <option value="all">All Statuses</option>
+                                    <option value="confirmed">Confirmed</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                                <div class="date-filter">
+                                    <span class="material-icons-round">calendar_today</span>
+                                    <input type="date" id="reservation-date-filter">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Guests</th>
+                                    <th>Status</th>
+                                    <th class="actions-col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reservations-table-body">
+                                <!-- Reservations will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <div class="table-info" id="reservations-table-info">Showing 1 to 5 of 12 entries</div>
+                        <div class="pagination">
+                            <button class="pagination-btn" disabled>
+                                <span class="material-icons-round">chevron_left</span>
+                            </button>
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn">
+                                <span class="material-icons-round">chevron_right</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Section -->
+            <div class="content-grid hidden" id="reports-content">
+                <div class="card full-width">
+                    <div class="card-header">
+                        <h3>Sales Reports</h3>
+                        <div class="card-toolbar">
+                            <div class="filters">
+                                <select id="report-type">
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="custom">Custom Range</option>
+                                </select>
+                                <div class="date-range-filter">
+                                    <div class="date-filter">
+                                        <span class="material-icons-round">calendar_today</span>
+                                        <input type="date" id="report-start-date">
+                                    </div>
+                                    <span class="date-range-separator">to</span>
+                                    <div class="date-filter">
+                                        <span class="material-icons-round">calendar_today</span>
+                                        <input type="date" id="report-end-date">
+                                    </div>
+                                </div>
+                                <button class="action-btn">
+                                    <span class="material-icons-round">refresh</span> Generate
+                                </button>
+                                <button class="action-btn secondary">
+                                    <span class="material-icons-round">download</span> Export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="reportChart"></canvas>
+                        </div>
+                        <div class="report-summary">
+                            <div class="summary-item">
+                                <div class="summary-icon">
+                                    <span class="material-icons-round">shopping_bag</span>
+                                </div>
+                                <div class="summary-content">
+                                    <h4>Total Sales</h4>
+                                    <p>$8,450</p>
+                                    <div class="summary-change positive">
+                                        <span class="material-icons-round">trending_up</span>
+                                        <span>+12.5% from last period</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-icon">
+                                    <span class="material-icons-round">receipt</span>
+                                </div>
+                                <div class="summary-content">
+                                    <h4>Total Orders</h4>
+                                    <p>124</p>
+                                    <div class="summary-change positive">
+                                        <span class="material-icons-round">trending_up</span>
+                                        <span>+8.3% from last period</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-icon">
+                                    <span class="material-icons-round">local_atm</span>
+                                </div>
+                                <div class="summary-content">
+                                    <h4>Average Order Value</h4>
+                                    <p>$68.15</p>
+                                    <div class="summary-change positive">
+                                        <span class="material-icons-round">trending_up</span>
+                                        <span>+3.9% from last period</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add/Edit Menu Item Modal -->
+        <div class="modal hidden" id="menu-item-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-title">Add Menu Item</h3>
+                    <button class="close-modal" id="close-menu-modal">
+                        <span class="material-icons-round">close</span>
+                    </button>
+                </div>
+                <form id="menu-item-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="item-name">Item Name</label>
+                            <input type="text" id="item-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="item-category">Category</label>
+                            <select id="item-category" required>
+                                <option value="">Select Category</option>
+                                <option value="appetizer">Appetizers</option>
+                                <option value="main">Main Courses</option>
+                                <option value="dessert">Desserts</option>
+                                <option value="beverage">Beverages</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="item-price">Price ($)</label>
+                            <div class="input-with-icon">
+                                <span class="material-icons-round">attach_money</span>
+                                <input type="number" id="item-price" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="item-discount">Discount (%)</label>
+                            <div class="input-with-icon">
+                                <span class="material-icons-round">percent</span>
+                                <input type="number" id="item-discount" min="0" max="100" value="0">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-description">Description</label>
+                        <textarea id="item-description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="item-image">Image</label>
+                        <div class="image-upload">
+                            <input type="file" id="item-image" accept="image/*" hidden>
+                            <label for="item-image" class="upload-area">
+                                <span class="material-icons-round">cloud_upload</span>
+                                <p>Click to upload or drag and drop</p>
+                                <small>PNG, JPG (Max. 2MB)</small>
+                            </label>
+                            <div class="image-preview" id="item-image-preview"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="item-status" value="active" checked>
+                                <span class="radio-checkmark"></span>
+                                <span>Active</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="item-status" value="inactive">
+                                <span class="radio-checkmark"></span>
+                                <span>Inactive</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="action-btn secondary" id="cancel-menu-item">Cancel</button>
+                        <button type="submit" class="action-btn primary">
+                            <span class="material-icons-round">save</span> Save Item
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Order Details Modal -->
+        <div class="modal hidden" id="order-details-modal">
+            <div class="modal-content wide-modal">
+                <div class="modal-header">
+                    <h3 id="order-details-title">Order Details #1256</h3>
+                    <button class="close-modal" id="close-order-modal">
+                        <span class="material-icons-round">close</span>
+                    </button>
+                </div>
+                <div class="order-details">
+                    <div class="order-info">
+                        <div class="info-item">
+                            <span class="material-icons-round">person</span>
+                            <div>
+                                <small>Customer</small>
+                                <p>John Doe</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="material-icons-round">email</span>
+                            <div>
+                                <small>Email</small>
+                                <p>john@example.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="material-icons-round">phone</span>
+                            <div>
+                                <small>Phone</small>
+                                <p>(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="material-icons-round">home</span>
+                            <div>
+                                <small>Delivery Address</small>
+                                <p>123 Food Street, Taste City</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="material-icons-round">event</span>
+                            <div>
+                                <small>Order Date</small>
+                                <p>April 5, 2025 - 12:30 PM</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="material-icons-round">payments</span>
+                            <div>
+                                <small>Payment Method</small>
+                                <p>Credit Card (Visa ****4242)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-items">
+                        <h4>Order Items</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="item-with-image">
+                                        <img src="https://source.unsplash.com/random/300x300/?pizza" alt="Margherita Pizza">
+                                        <span>Margherita Pizza</span>
+                                    </td>
+                                    <td>1</td>
+                                    <td>$12.99</td>
+                                    <td>$12.99</td>
+                                </tr>
+                                <tr>
+                                    <td class="item-with-image">
+                                        <img src="https://source.unsplash.com/random/300x300/?pasta" alt="Pasta Alfredo">
+                                        <span>Pasta Alfredo</span>
+                                    </td>
+                                    <td>2</td>
+                                    <td>$10.99</td>
+                                    <td>$21.98</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3">Subtotal</td>
+                                    <td>$34.97</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">Delivery Fee</td>
+                                    <td>$5.00</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">Discount (10%)</td>
+                                    <td>-$3.50</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td colspan="3">Total</td>
+                                    <td>$36.47</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="order-notes">
+                        <h4>Customer Notes</h4>
+                        <p>Please make sure the pasta is not too spicy. Also, can you include some extra napkins? Thanks!</p>
+                    </div>
+                    <div class="order-actions">
+                        <div class="status-update">
+                            <label>Update Status</label>
+                            <select id="order-status-update">
+                                <option value="pending">Pending</option>
+                                <option value="preparing" selected>Preparing</option>
+                                <option value="on-the-way">On the Way</option>
+                                <option value="delivered">Delivered</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                            <button class="action-btn primary">
+                                <span class="material-icons-round">update</span> Update
+                            </button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="action-btn secondary">
+                                <span class="material-icons-round">receipt</span> Print Receipt
+                            </button>
+                            <button class="action-btn secondary">
+                                <span class="material-icons-round">notifications</span> Notify Customer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation Modal -->
+        <div class="modal hidden" id="confirm-modal">
+            <div class="modal-content small-modal">
+                <div class="modal-icon">
+                    <span class="material-icons-round">warning</span>
+                </div>
+                <h4 id="confirm-message">Are you sure you want to delete this item?</h4>
+                <div class="modal-buttons">
+                    <button class="modal-btn secondary" id="confirm-cancel">Cancel</button>
+                    <button class="modal-btn primary" id="confirm-action">Delete</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="toast hidden" id="toast-notification">
+            <span class="material-icons-round" id="toast-icon">check_circle</span>
+            <p id="toast-message">Operation completed successfully</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../javascript/admin.js"></script>
+</body>
+</html>

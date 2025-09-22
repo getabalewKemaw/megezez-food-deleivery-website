@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGEZEZ - Payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/payment.css">
+</head>
+<body>
+    <div class="payment-container">
+        <div class="glass-card">
+            <h1><i class="fas fa-cash-register"></i> Complete Your Order</h1>
+            
+            <form id="paymentForm">
+                <!-- Personal Info -->
+                <div class="form-section">
+                    <h2><i class="fas fa-user"></i> Personal Information</h2>
+                    <div class="input-group">
+                        <input type="text" id="fullName" required placeholder=" ">
+                        <label for="fullName">Full Name</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" id="phone" required placeholder=" " pattern="[0-9]{10}">
+                        <label for="phone">Phone Number</label>
+                    </div>
+                </div>
+
+                <!-- Delivery Method -->
+                <div class="form-section">
+                    <h2><i class="fas fa-truck"></i> Delivery Method</h2>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="deliveryYes" name="delivery" value="yes" checked>
+                            <label for="deliveryYes">With Delivery (+50 ETB)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="deliveryNo" name="delivery" value="no">
+                            <label for="deliveryNo">Pick Up (Free)</label>
+                        </div>
+                    </div>
+
+                    <div id="deliveryDetails">
+                        <div class="input-group">
+                            <input type="text" id="building" required placeholder=" ">
+                            <label for="building">Building Name/No</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="classNumber" required placeholder=" ">
+                            <label for="classNumber">Class/Room Number</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="form-section">
+                    <h2><i class="fas fa-credit-card"></i> Payment Method</h2>
+                    <div class="select-group">
+                        <select id="paymentMethod" required>
+                            <option value="">Select Payment</option>
+                            <option value="nib">Nib International Bank</option>
+                            <option value="cbe">CBE</option>
+                            <option value="dashen">Dashen Bank</option>
+                            <option value="abisinia">Abisinia Bank</option>
+                            <option value="telebirr">Telebirr</option>
+                        </select>
+                    </div>
+
+                    <div id="accountDetails" class="hidden">
+                        <div class="input-group">
+                            <input type="text" id="accountNumber" placeholder=" ">
+                            <label for="accountNumber">Account Number</label>
+                            <div id="accountError" class="error-message"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-lock"></i> Complete Payment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="success-modal hidden">
+        <div class="modal-glass">
+            <i class="fas fa-check-circle"></i>
+            <h2>Payment Successful!</h2>
+            <p>Your order is being processed. You'll receive an SMS confirmation shortly.</p>
+            <button class="modal-ok-btn">OK</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="../javascript/payment.js"></script>
+</body>
+</html>
